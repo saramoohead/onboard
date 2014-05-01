@@ -1,0 +1,11 @@
+<h2>Log in to Onboard</h2>
+
+<!-- There is no variable on this form, no @user, etc. So we must tell it where to send the adta -->
+<%= simple_form_for :session, url: session_path do |form| %>
+
+	<%= form.input :username %>
+	<%= form.input :password %>
+
+	<%= form.button :submit %>
+
+<% end %>
