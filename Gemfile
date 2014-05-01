@@ -38,3 +38,31 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# add a CMS
+gem 'activeadmin', github: 'gregbell/active_admin'
+
+#make forms easier to build
+gem 'simple_form'
+
+# need to do image uploads
+gem 'paperclip'
+
+# stripe for payments on orders
+gem 'stripe'
+
+# we've got a map, to place rooms on map
+gem 'geocoder'
+
+# omniauth is social log ins
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-tumblr'
+
+# layout for onboard
+gem 'steer'
+
+
+
+
+
