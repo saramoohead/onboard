@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
 
 	def index
 		#this is the home page
-		@rooms = Room.all
+		@rooms = Room.limit(5)
 	end
 
 	def show
@@ -62,7 +62,7 @@ class RoomsController < ApplicationController
 
 	def room_params
 		# make sure form data isn't hacked
-		params.require(:room).permit(:name, :address, :description, :number_of_guests)
+		params.require(:room).permit(:name, :address, :description, :number_of_guests, :image)
 		
 	end
 
