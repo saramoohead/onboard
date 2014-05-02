@@ -22,8 +22,8 @@ class OrdersController < ApplicationController
 		if @order.save
 
 			# charge them with stripe, using Stripe gem
-			# the amount is always in the base unit, i.e. pence 100 pence is charging £1.00
-			Stripe::Charge.create(amount: 100, currency: "gbp",
+			# the amount is always in the base unit, i.e. pence 100 pence would charge £1.00
+			Stripe::Charge.create(amount: @room.price_in_pence, currency: "gbp",
 				card: @order.stripe_token, description: "Onboard order")
 			
 			# To add in a subscription:
