@@ -62,7 +62,7 @@ gem 'omniauth-tumblr'
 # layout for onboard
 gem 'steer'
 
-
-
+# add in foundation by zurb
+gem 'foundation-rails'
 
 
