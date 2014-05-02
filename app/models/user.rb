@@ -4,8 +4,10 @@ class User < ActiveRecord::Base
 	has_many :orders
 
 	# validations
-	validates :username, presence: true, uniqueness: true
-	validates :email, presence: true, uniqueness: true
+	validates :username, presence: true, uniqueness: true, 
+		if: ->{ provider.nil? }
+	validates :email, presence: true, uniqueness: true,
+		if: ->{ provider.nil? }
 
 	# plugins
 	has_secure_password

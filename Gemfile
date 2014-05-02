@@ -57,7 +57,8 @@ gem 'geocoder'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
-gem 'omniauth-tumblr'
+gem 'omniauth-linkedin'
+
 
 # layout for onboard
 gem 'steer'

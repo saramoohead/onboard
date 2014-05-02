@@ -39,11 +39,13 @@
         <% if flash[:success].present? %>
         <div data-alert class="alert-box success">
           <%= flash[:success] %>
+        </div>
         <% end %>
       
         <% if flash[:error].present? %>
         <div data-alert class="alert-box alert">
           <%= flash[:error] %>
+        </div>
         <% end %>
 
       <%= yield %>

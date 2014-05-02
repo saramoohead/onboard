@@ -29,6 +29,9 @@ class OrdersController < ApplicationController
 			# To add in a subscription:
 			# Stripe::Customer.create(card: @order.sptripe.token, plan: "subscription", description "Lots of rooms")
 
+			# once we've saved the order, send an email to the owner
+			OrderMailer.new_order_notification(@order).deliver
+
 			flash[:success] = "Yay, you've ordered this room"
 			redirect_to room_path(@room)
 		else
