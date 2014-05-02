@@ -1,6 +1,8 @@
 class Room < ActiveRecord::Base
 
 	# assocations (has many orders, belongs to user)
+	belongs_to :user
+	has_many :orders
 
 	# validations
 	validates :name, presence: true

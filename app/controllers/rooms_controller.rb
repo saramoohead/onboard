@@ -1,5 +1,8 @@
 class RoomsController < ApplicationController
 
+	before_action :make_sure_logged_in, only: [:new, :create, :edit, :update, :destroy]
+	# before_action :make_sure_logged_in, except: [:index, :show]
+
 	def index
 		#this is the home page
 		@rooms = Room.limit(5)
@@ -12,12 +15,12 @@ class RoomsController < ApplicationController
 
 	def new
 		# add a new room form
-		@room = Room.new
+		@room = current_user.rooms.new
 	end
 
 	def create
 		# actually add the new room to the database
-		@room = Room.new(room_params)
+		@room = current_user.rooms.new(room_params)
 
 		if @room.save
 			flash[:success] = "You've added your room."
@@ -30,13 +33,13 @@ class RoomsController < ApplicationController
 
 	def edit
 		# make the rooms editable
-		@room = Room.find(params[:id])
+		@room = current_user.rooms.find(params[:id])
 
 	end
 
 	def update
 		# actually update the database 
-		@room = Room.find(params[:id])
+		@room = current_user.rooms.find(params[:id])
 
 		if @room.update (room_params)
 			flash[:success] = "You've updated your room."
@@ -49,7 +52,7 @@ class RoomsController < ApplicationController
 
 	def destroy
 		# actually delete from the databae, the action
-		@room = Room.find(params[:id])
+		@room = current_user.rooms.find(params[:id])
 
 		@room.destroy
 
